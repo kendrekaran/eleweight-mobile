@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import InstallPrompt from "@/components/pwa/InstallPrompt";
+import ServiceWorkerRegistration from "@/components/pwa/ServiceWorkerRegistration";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,14 +41,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icon-192.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="EleWeight" />
         <meta name="theme-color" content="#0B0B0E" />
+        <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <ServiceWorkerRegistration />
+        <InstallPrompt />
       </body>
     </html>
   );

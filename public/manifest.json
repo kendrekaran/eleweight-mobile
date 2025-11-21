@@ -3,10 +3,12 @@
   "short_name": "EleWeight",
   "description": "Your professional fitness companion",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0B0B0E",
   "theme_color": "#0B0B0E",
   "orientation": "portrait",
+  "categories": ["health", "fitness", "lifestyle"],
   "icons": [
     {
       "src": "/icon-192.png",
